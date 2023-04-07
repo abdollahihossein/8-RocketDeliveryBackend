@@ -5,6 +5,9 @@ This is the project for 11th week in CodeBoxx.
 
 * System dependencies: devise
 
+* usefull commands:
+rails db:drop db:create db:migrate
+
 -------------------------------------------------------------------------------------------------------------------
 What is SQL?
 
