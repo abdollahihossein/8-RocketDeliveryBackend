@@ -2,12 +2,31 @@
 
 <h1>Addresses</h1>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Street address</th>
+      <th scope="col">City</th>
+      <th scope="col">Postal code</th>
+    </tr>
+  </thead>
+</table>
+
 <div id="addresses">
   <% @addresses.each do |address| %>
-    <%= render address %>
-    <p>
-      <%= link_to "Show this address", address %>
-    </p>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td><%= address.id %></td>
+          <td><%= address.street_address %></td>
+          <td><%= address.city %></td>
+          <td><%= address.postal_code %></td>
+          <td><%= link_to "Edit", edit_address_path(address) %></td>
+          <td><%= button_to "Delete", address, method: :delete %></td>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 </div>
 
