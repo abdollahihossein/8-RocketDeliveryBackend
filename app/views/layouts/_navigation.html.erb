@@ -18,10 +18,10 @@
       </div>
     </div>
     <div> <%= current_user.email %> </div>
-    <div><%= button_to "Sign out", destroy_user_session_path, method: :delete %></div>
+    <div><%= button_to "Sign out", destroy_user_session_path, method: :delete, :class => "btn btn-primary" %></div>
     <% else %>
     <div></div>
-    <%= button_to "Sign in", new_user_session_path %>
+    <%= button_to "Sign in", new_user_session_path, :class => "btn btn-primary" %>
     <% end %>
   </div>
 </nav>

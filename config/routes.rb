@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :courier_statuses
+  resources :couriers
   resources :addresses
   resources :order_statuses
   resources :product_orders

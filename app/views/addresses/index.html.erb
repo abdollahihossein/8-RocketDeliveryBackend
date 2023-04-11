@@ -1,33 +1,36 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Addresses</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Street address</th>
-      <th scope="col">City</th>
-      <th scope="col">Postal code</th>
-    </tr>
-  </thead>
-</table>
+<br>
 
 <div id="addresses">
-  <% @addresses.each do |address| %>
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-          <td><%= address.id %></td>
-          <td><%= address.street_address %></td>
-          <td><%= address.city %></td>
-          <td><%= address.postal_code %></td>
-          <td><%= link_to "Edit", edit_address_path(address) %></td>
-          <td><%= button_to "Delete", address, method: :delete %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Street address</th>
+        <th scope="col">City</th>
+        <th scope="col">Postal code</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+      
+      <% j = 1 %>
+      <% @addresses.each do |address| %>
+        <tbody>
+          <tr>
+            <td><%= j %></td>
+            <td><%= address.street_address %></td>
+            <td><%= address.city %></td>
+            <td><%= address.postal_code %></td>
+            <td><%= link_to "Edit", edit_address_path(address), :class => "btn btn-success" %></td>
+            <td><%= button_to "Delete", address, method: :delete, :class => "btn btn-danger" %></td>
+          </tr>
+        </tbody>
+        <% j += 1 %>
+      <% end %>
+  </table>
 </div>
 
 <%= link_to "New address", new_address_path %>

@@ -3,11 +3,23 @@ This is the project for 11th week in CodeBoxx.
 
 * Ruby version: 3.1.2
 
+* Rails version: 7.0.4.3
+
+* sqlite3 version: 3.37.2
+
 * System dependencies: devise
 
 * usefull commands:
+rails new myproject
+rails s  ---> http://localhost:3000
+rails g controller posts show
+rails g model post title:string body:text
+rails db:migrate
+rails db:seed
 rails db:drop db:create db:migrate
-
+rails routes
+rails g scaffold person firstname:string lastname age:integer active:boolean height:decimal
+rails destroy scaffold person
 -------------------------------------------------------------------------------------------------------------------
 What is SQL?
 
