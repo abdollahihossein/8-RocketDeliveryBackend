@@ -20,6 +20,7 @@ rails db:drop db:create db:migrate
 rails routes
 rails g scaffold person firstname:string lastname age:integer active:boolean height:decimal
 rails destroy scaffold person
+rails db:reset
 -------------------------------------------------------------------------------------------------------------------
 What is SQL?
 
