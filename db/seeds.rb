@@ -18,4 +18,6 @@ john = User.create!(email: "john@doe.com", name: "John Doe", password: "password
 
 # John has a restaurant!
 john_restaurant_address = Address.create!(street_address: "6312 Learning Street", city: "New York", postal_code: "10008")
-Restaurant.create!(user_id: john.id, address_id: john_restaurant_address.id, phone: "2124328554", email: "info@kingdomburg.com", name: "Kingdom Burg", price_range: 1, active: true)
+john_restaurant = Restaurant.create!(user_id: john.id, address_id: john_restaurant_address.id, phone: "2124328554", email: "info@kingdomburg.com", name: "Kingdom Burg", price_range: 1, active: true)
+
+Product.create!(restaurant_id: john_restaurant.id, name: "rice", description: "Basmati", cost: 7)

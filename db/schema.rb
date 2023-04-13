@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 11) do
   create_table "couriers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "address_id", null: false
-    t.integer "courier_status_id", null: false
+    t.integer "courier_status_id", default: 1, null: false
     t.string "phone", null: false
     t.string "email"
     t.boolean "active", default: true, null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 11) do
     t.integer "restaurant_id", null: false
     t.integer "customer_id", null: false
     t.integer "order_status_id", null: false
-    t.integer "courier_id", null: false
+    t.integer "courier_id"
     t.integer "restaurant_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
