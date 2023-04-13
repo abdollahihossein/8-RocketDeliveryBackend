@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root to: "home#index", as: 'home'
+  
+  namespace :api do
+    post '/login' => 'auth#index'
+    get '/products' => 'products#index'
+  end
+
   resources :courier_statuses
   resources :couriers
   resources :addresses
@@ -14,5 +21,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "home#index", as: 'home'
 end

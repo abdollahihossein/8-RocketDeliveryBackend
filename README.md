@@ -17,7 +17,7 @@ rails g model post title:string body:text
 rails db:migrate
 rails db:seed
 rails db:drop db:create db:migrate
-rails routes
+rails routes --expanded
 rails g scaffold person firstname:string lastname age:integer active:boolean height:decimal
 rails destroy scaffold person
 rails db:reset
