@@ -22,7 +22,7 @@ class Api::RestaurantsController < ApplicationController
             end
         else
             if @restaurants
-                render json: { message: "Got restaurants!"}, status: :ok
+                render json: { message: "Restaurants exist!"}, status: :ok
             end
         end
 
