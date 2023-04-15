@@ -7,7 +7,6 @@ class Api::RestaurantsController < ApplicationController
         @order = Order.find_by(restaurant_rating: rating)
         range1 = 1..5
         range2 = 1..3
-
         if rating != nil || price_range != nil
             if @restaurants && @restaurant && range1.cover?(rating.to_i) && range2.cover?(price_range.to_i)
                 result = [{
@@ -25,6 +24,5 @@ class Api::RestaurantsController < ApplicationController
                 render json: { message: "Restaurants exist!"}, status: :ok
             end
         end
-
     end
 end

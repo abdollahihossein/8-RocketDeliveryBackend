@@ -1,8 +1,6 @@
 class Api::ProductsController < ApplicationController
     def index
-
         data = params[:restaurant]
-        
         if data != nil
             restaurant = Restaurant.find_by(data)
             if restaurant
@@ -25,7 +23,5 @@ class Api::ProductsController < ApplicationController
                 render json: { message: "Products exist!"}, status: :ok
             end
         end
-
     end
 end
-

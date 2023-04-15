@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     post '/login' => 'auth#index'
-    get '/products' => 'products#index'
     get '/restaurants' => 'restaurants#index'
+    get '/products' => 'products#index'
+    post '/order/:id/status' => 'orders#index'
   end
 
   resources :courier_statuses
