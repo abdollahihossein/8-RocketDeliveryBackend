@@ -7,13 +7,7 @@ class Api::ProductsController < ApplicationController
                 @products = restaurant.products.select(:id, :name, :cost)
             end
             if @products
-                j = 0
-                result = []
-                @products.each do |product|
-                    result[j] = {id: product.id, name: product.name, cost: product.cost}
-                    j += 1
-                end            
-                render json: result, status: :ok
+                render json: @products, status: :ok
             else
                 render json: { error: "Invalid restaurant ID" }, status: 422
             end

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     post '/login' => 'auth#index'
     get '/restaurants' => 'restaurants#index'
     get '/products' => 'products#index'
-    post '/order/:id/status' => 'orders#index'
+    post '/order/:id/status' => 'orders#update'
+    get '/orders' => 'orders#index'
+    post '/orders' => 'orders#create'
   end
 
   resources :courier_statuses
