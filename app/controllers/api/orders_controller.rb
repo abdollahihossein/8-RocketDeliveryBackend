@@ -1,5 +1,6 @@
 class Api::OrdersController < ApplicationController
-
+    skip_before_action :verify_authenticity_token
+    
     def update
         status = params[:status]
         id = params[:id]
@@ -48,10 +49,10 @@ class Api::OrdersController < ApplicationController
                             "product_id": product_order.product_id,
                             "product_name": products.name,
                             "quantity": product_order.product_quantity,
-                            "unit_cost": products.cost,
-                            "total_cost": product_order.product_quantity * products.cost
+                            "unit_cost": products.cost.to_f/100,
+                            "total_cost": product_order.product_quantity * products.cost.to_f/100
                         }
-                        total_cost +=  product_order.product_quantity * products.cost
+                        total_cost +=  product_order.product_quantity * products.cost.to_f/100
                         k += 1
                     end
 
@@ -67,7 +68,7 @@ class Api::OrdersController < ApplicationController
                     "courier_name": user2.name,
                     "status": order_status.name,
                     "products": result2,
-                    "total_cost": total_cost
+                    "total_cost": total_cost.round(2)
                 }
                 j += 1
                 end
@@ -94,10 +95,10 @@ class Api::OrdersController < ApplicationController
                             "product_id": product_order.product_id,
                             "product_name": products.name,
                             "quantity": product_order.product_quantity,
-                            "unit_cost": products.cost,
-                            "total_cost": product_order.product_quantity * products.cost
+                            "unit_cost": products.cost.to_f/100,
+                            "total_cost": product_order.product_quantity * products.cost.to_f/100
                         }
-                        total_cost +=  product_order.product_quantity * products.cost
+                        total_cost +=  product_order.product_quantity * products.cost.to_f/100
                         k += 1
                     end
 
@@ -113,7 +114,7 @@ class Api::OrdersController < ApplicationController
                     "courier_name": user2.name,
                     "status": order_status.name,
                     "products": result2,
-                    "total_cost": total_cost
+                    "total_cost": total_cost.round(2)
                 }
                 j += 1
                 end
@@ -140,10 +141,10 @@ class Api::OrdersController < ApplicationController
                             "product_id": product_order.product_id,
                             "product_name": products.name,
                             "quantity": product_order.product_quantity,
-                            "unit_cost": products.cost,
-                            "total_cost": product_order.product_quantity * products.cost
+                            "unit_cost": products.cost.to_f/100,
+                            "total_cost": product_order.product_quantity * products.cost.to_f/100
                         }
-                        total_cost +=  product_order.product_quantity * products.cost
+                        total_cost +=  product_order.product_quantity * products.cost.to_f/100
                         k += 1
                     end
 
@@ -152,6 +153,7 @@ class Api::OrdersController < ApplicationController
                     "customer_id": customer.id,
                     "customer_name": user1.name,
                     "customer_address": "#{address1.street_address}, #{address1.city}, #{address1.postal_code}",
+                    "customer_street_address": "#{address1.street_address}",
                     "restaurant_id": restaurant.id,
                     "restaurant_name": restaurant.name,
                     "restaurant_address": "#{address2.street_address}, #{address2.city}, #{address2.postal_code}",
@@ -159,7 +161,7 @@ class Api::OrdersController < ApplicationController
                     "courier_name": user2.name,
                     "status": order_status.name,
                     "products": result2,
-                    "total_cost": total_cost
+                    "total_cost": total_cost.round(2)
                 }
                 j += 1
                 end

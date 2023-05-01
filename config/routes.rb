@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     post '/order/:id/status' => 'orders#update'
     get '/orders' => 'orders#index'
     post '/orders' => 'orders#create'
+    get '/account/:id' => 'account#index'
+    post '/account/:id' => 'account#update'
   end
 
   resources :courier_statuses

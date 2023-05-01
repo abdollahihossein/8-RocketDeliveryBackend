@@ -1,13 +1,13 @@
 class Api::ProductsController < ApplicationController
     def index
-        data = params[:restaurant]
-        if data != nil
-            restaurant = Restaurant.find_by(data)
+        id = params[:restaurant]
+        if id != nil
+            restaurant = Restaurant.find_by(id: id)
             if restaurant
-                @products = restaurant.products.select(:id, :name, :cost)
+                products = restaurant.products.select(:id, :name, :cost)
             end
-            if @products
-                render json: @products, status: :ok
+            if products
+                render json: products, status: :ok
             else
                 render json: { error: "Invalid restaurant ID" }, status: 422
             end
